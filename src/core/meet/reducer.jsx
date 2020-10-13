@@ -13,7 +13,8 @@ const defaultState = {
       role: "admin",
     },
   ],
-  auth: false,
+  auth: {},
+  authError: false,
 };
 
 export function reducer(state = defaultState, { type, payload }) {
@@ -23,6 +24,12 @@ export function reducer(state = defaultState, { type, payload }) {
       return {
         ...state,
         auth: payload,
+      };
+    case CONST.AUTH_ERROR:
+      debugger;
+      return {
+        ...state,
+        authError: payload,
       };
     default:
       return state;

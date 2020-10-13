@@ -3,7 +3,12 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Event from "../../components/Event";
 
-function Home() {
+function Home(props) {
+
+
+  console.log(props);
+
+
   return (
     <Container maxWidth="md">
       <Grid container spacing={2}>
