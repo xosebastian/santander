@@ -12,6 +12,7 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Image from '../../../../public/meet-beer-1.jpg'
 import Image2 from '../../../../public/meet-beer-2.jpg'
 import Image3 from '../../../../public/meet-beer-3.jpg'
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,8 +32,10 @@ const useStyles = makeStyles((theme) => ({
 
 const images = [Image, Image2, Image3]
 
-export default function Event() {
+export default function Event(props) {
   const classes = useStyles();
+
+  const {place, time, date, guest} = props;
 
   return (
     <Card className={classes.root}>
@@ -47,13 +50,18 @@ export default function Event() {
             After Work Birra Santander
           </Typography>
           <div className={classes.chips}>
-            <Chip icon={<EventIcon />} label="20 de Julio" color="secondary" />
+            <Chip icon={<EventIcon />} label={date} color="primary" />
+            <Chip
+              icon={<AccessTimeIcon />}
+              label={time}
+              color="primary"
+            />
             <Chip
               icon={<LocationOnIcon />}
-              label="Parque Patricios"
-              color="secondary"
+              label={place}
+              color="primary"
             />
-            <Chip icon={<FaceIcon />} label="150 invitados" color="secondary" />
+            <Chip icon={<FaceIcon />} label={`${guest} invitados`} color="primary" />
           </div>
         </CardContent>
       </CardActionArea>

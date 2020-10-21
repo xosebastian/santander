@@ -55,14 +55,14 @@ const Login = (props) => {
             fullWidth
             label="Usuario"
             name="user"
-            color="secondary"
+            color="primary"
             autoComplete="Usuario"
             onChange={(e) => setLogin({ ...login, username: e.target.value })}
             autoFocus
           />
           <TextField
             variant="outlined"
-            color="secondary"
+            color="primary"
             margin="normal"
             required
             fullWidth
@@ -75,7 +75,7 @@ const Login = (props) => {
             type="button"
             fullWidth
             variant="contained"
-            color="secondary"
+            color="primary"
             className={classes.submit}
             onClick={() => LoginAction(login)}
           >

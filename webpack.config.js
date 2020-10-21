@@ -5,6 +5,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   watch: process.env.NODE_ENV === "development",
+  stats: {warnings:false},
   mode: "development",
   devServer: {
     port: 3000,
@@ -15,6 +16,9 @@ module.exports = {
     compress: true,
     inline: true,
     index: "index.html",
+  },
+  performance: {
+    hints: false
   },
   optimization: {
     minimizer: [new UglifyJsPlugin()],
@@ -40,6 +44,7 @@ module.exports = {
           {
             loader: "url-loader",
             options: {
+              esModule: false,
               limit: 8000,
               name: "images/[hash]-[name].[ext]",
             },

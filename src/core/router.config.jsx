@@ -23,12 +23,20 @@ export const PrivateRoute = ({ auth, component: Component, ...rest }) => (
   <Route
     {...rest}
     component={(props) => {
-      const { onlyAuth} = rest;
+      const { onlyAuth, onlyAdmin} = rest;
       debugger;
       if (_.isEmpty(auth) && onlyAuth) {
         return <Component {...props}></Component>;
       } else {
-        <Redirect to="/"></Redirect>;
+        if(!_.isEmpty(auth)){
+          if(onlyAdmin && auth.role == "admin"){
+            return <Component {...props}></Component>;
+          }else{
+            return <Redirect to="/"></Redirect>;
+          }
+        }else{
+          return <Redirect to="/"></Redirect>;
+        }
       }
     }}
   ></Route>

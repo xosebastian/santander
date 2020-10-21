@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
+import { Provider, ReactReduxContext } from "react-redux";
 import { store, history } from "./core/store.config";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
-import { Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
 import theme from "./core/theme.config";
 import PrivateRoute from "./core/router.config";
@@ -16,18 +16,32 @@ import Create from "./views/containers/Create";
 
 ReactDOM.render(
   <Provider store={store}>
+    {" "}
     <ThemeProvider theme={theme}>
       <CssBaseline />
+
       <ConnectedRouter history={history}>
         <Header />
         <Switch>
           <Route exact component={Home} key={"/"} path={"/"} />
-          <Route exact component={Login} key={"/login"} path={"/login"} />
-          <Route exact component={Login} key={"/create"} path={"/create"} />
+          <PrivateRoute
+            exact
+            onlyAuth
+            component={Login}
+            key={"/login"}
+            path={"/login"}
+          />
+          <Route
+            exact
+            onlyAdmin
+            component={(props) => <Create {...props} />}
+            key={"/create"}
+            path={"/create"}
+          />
         </Switch>
-        <Footer />
       </ConnectedRouter>
-    </ThemeProvider>
+      <Footer />
+    </ThemeProvider>{" "}
   </Provider>,
   document.getElementById("root")
 );

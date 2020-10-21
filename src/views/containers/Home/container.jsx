@@ -1,9 +1,11 @@
 import { connect } from "react-redux";
 import Home from "./home";
+import { getMeet } from "../../../core/meet/selector";
+
 
 
 const mapStateToProps = (state) => ({
-  state: state,
+  meet: getMeet(state),
 });
 
 const mapDispatchToProps = {
