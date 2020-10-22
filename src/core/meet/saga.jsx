@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { call, put, select } from "redux-saga/effects";
 import { push } from "react-router-redux";
 import { getUsers, getWeather, getMeet } from "./selector";
@@ -12,7 +11,6 @@ import {
   updateMeetAction,
 } from "./actions";
 import { getWeatherService } from "./services";
-//import { toggleSpinner } from "../ui/action";
 
 export function* verifyUserSaga({ payload }) {
   const users = yield select(getUsers);
@@ -55,7 +53,27 @@ export function* getBeerSaga({ payload }) {
 export function* setMeetSaga({ payload }) {
   let meet = yield select(getMeet);
   payload.id = meet.length;
+  payload.guestList = [
+    { name: "Lucas" },
+    { name: "Juan" },
+    { name: "Pedro" },
+    { name: "Alan" },
+  ];
   var meets = [...meet, payload];
   yield put(updateMeetAction(meets));
   yield put(push("/"));
+}
+
+export function* setGuestSaga({ payload }) {
+  let meet = yield select(getMeet);
+  let find = _.find(meet, (o) => o.id == payload.id);
+  find.guestList.push({ name: payload.name });
+
+  _.remove(meet, { id: payload.id });
+
+  var meets = [...meet, find];
+
+  console.log(meets);
+
+  yield put(updateMeetAction(meets));
 }

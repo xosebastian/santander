@@ -1,40 +1,23 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { Component } from "react";
-import Home from "../views/containers/Home";
-import Login from "../views/containers/Login";
 import { Route, Redirect } from "react-router";
 import { connect } from "react-redux";
-import _ from 'lodash';
-
-/*export default [
-  {
-    component: Home,
-    path: "/"
-  },
-  {
-    component: Login,
-    path: "/login"
-  }
-];
-*/
+import _ from "lodash";
 
 export const PrivateRoute = ({ auth, component: Component, ...rest }) => (
   <Route
     {...rest}
     component={(props) => {
-      const { onlyAuth, onlyAdmin} = rest;
-      debugger;
+      const { onlyAuth, onlyAdmin } = rest;
       if (_.isEmpty(auth) && onlyAuth) {
         return <Component {...props}></Component>;
       } else {
-        if(!_.isEmpty(auth)){
-          if(onlyAdmin && auth.role == "admin"){
+        if (!_.isEmpty(auth)) {
+          if (onlyAdmin && auth.role == "admin") {
             return <Component {...props}></Component>;
-          }else{
+          } else {
             return <Redirect to="/"></Redirect>;
           }
-        }else{
+        } else {
           return <Redirect to="/"></Redirect>;
         }
       }
@@ -42,20 +25,11 @@ export const PrivateRoute = ({ auth, component: Component, ...rest }) => (
   ></Route>
 );
 
-const mapStateToProps = (state) => (console.log(state),{
-  auth: state.reducer.auth,
-});
+const mapStateToProps = (state) => (
+  console.log(state),
+  {
+    auth: state.reducer.auth,
+  }
+);
 
 export default connect(mapStateToProps)(PrivateRoute);
-
-/*
-
-
-
-(
-  auth ? (
-    <Component {...props}></Component>
-  ) : (
-    <Redirect to="/" ></Redirect>
-  )
-)*/

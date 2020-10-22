@@ -7,7 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import { Alert, AlertTitle } from '@material-ui/lab';
+import { Alert, AlertTitle } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -34,10 +34,6 @@ const Login = (props) => {
 
   const classes = useStyles();
   const [login, setLogin] = useState({ username: "", password: "" });
-
-
-  console.log(props);
-
 
   return (
     <Container component="main" maxWidth="xs">
@@ -84,7 +80,8 @@ const Login = (props) => {
           {authError && (
             <Alert severity="error">
               <AlertTitle>Usuario y Contraseña incorrectos</AlertTitle>
-              Podes probar con — <strong>admin:admin</strong> o <strong>user:user</strong> 
+              Podes probar con — <strong>admin:admin</strong> o{" "}
+              <strong>user:user</strong>
             </Alert>
           )}
         </form>

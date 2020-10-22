@@ -6,6 +6,11 @@ export const LoginAction = (payload) => ({
   type: CONST.LOGIN,
 });
 
+export const LoginOut = (payload) => ({
+  payload,
+  type: CONST.LOGIN_OUT,
+});
+
 export const setAuthAction = (payload) => ({
   payload,
   type: CONST.AUTH,
@@ -59,3 +64,11 @@ export const setMeetAction = (payload) => ({
   payload,
   type: CONST.MEET.SET,
 });
+
+
+export const setGuestAction = (payload) => ({
+  payload,
+  type: CONST.GUEST.SET,
+});
+
+

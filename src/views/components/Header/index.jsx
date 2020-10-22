@@ -8,16 +8,19 @@ import AddIcon from "@material-ui/icons/Add";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import _ from "lodash";
+import { LoginOut } from "../../../core/meet/actions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginBottom: theme.spacing(2),
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
+    textDecoration: 'none'
   },
 }));
 const Header = (props) => {
@@ -27,22 +30,20 @@ const Header = (props) => {
     auth: { role },
   } = props;
 
-  // console.log(role);
-
   return (
     <div className={classes.root}>
       <AppBar elevation={1} position="static" color={"secondary"}>
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            News
+          <Typography variant="h6" component={Link} to={"/"} className={classes.title}>
+            Challenge Meetups
           </Typography>
 
-          {!_.isEmpty(auth) ? (
+          {_.isEmpty(auth) ? (
             <Button color="primary" component={Link} to={"/login"}>
               Ingresar
             </Button>
           ) : (
-            /* role == "admin"*/ true && (
+            role == "admin" && (
               <Button
                 variant="contained"
                 color="primary"
@@ -54,6 +55,11 @@ const Header = (props) => {
               </Button>
             )
           )}
+          {!_.isEmpty(auth) && (
+            <Button color="primary" onClick={() => props.LoginOut()}>
+              Salir
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </div>
@@ -64,4 +70,8 @@ const mapStateToProps = (state) => ({
   auth: state.reducer.auth,
 });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = {
+  LoginOut,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

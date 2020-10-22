@@ -13,8 +13,8 @@ export default function Beer(props) {
       {beer && (
         <Grid container spacing={4}>
           <Grid item xs={12} sm={12}>
-          <Typography variant="h5" gutterBottom>
-              Cantidad de cerveza
+            <Typography variant="h5" gutterBottom>
+              Cantidad de cervezas
             </Typography>
           </Grid>
           <Grid item xs={6} sm={4}>
@@ -24,7 +24,6 @@ export default function Beer(props) {
             <Typography variant="h3" gutterBottom>
               x{beer}
             </Typography>
-    
           </Grid>
         </Grid>
       )}

@@ -3,7 +3,7 @@
 import { createBrowserHistory } from "history";
 import createSagaMiddleware from "redux-saga";
 import { createStore, compose, applyMiddleware } from "redux";
-import { routerMiddleware } from 'react-router-redux';
+import { routerMiddleware } from "react-router-redux";
 import rootReducer from "./reducer.root";
 import rootSagas from "./sagas.root";
 
@@ -13,7 +13,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const middlewares = [sagaMiddleware,   routerMiddleware(history)];
+const middlewares = [sagaMiddleware, routerMiddleware(history)];
 
 export const store = createStore(
   rootReducer(history),

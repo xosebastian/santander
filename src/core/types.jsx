@@ -17,4 +17,9 @@ export default {
     SET: "@MEET/SET",
     UPDATE: "@MEET/UPDATE",
   },
+  GUEST: {
+    GET: "@GUEST/GET",
+    SET: "@GUEST/SET",
+    UPDATE: "@GUEST/UPDATE",
+  },
 };

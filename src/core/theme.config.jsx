@@ -1,8 +1,5 @@
 import { createMuiTheme } from "@material-ui/core/styles";
-import { red, pink } from "@material-ui/core/colors";
-import blue from "@material-ui/core/colors/blue";
-import green from "@material-ui/core/colors/green";
-import { reduceRight } from "lodash";
+import { red } from "@material-ui/core/colors";
 
 // Create a theme instance.
 const theme = createMuiTheme({

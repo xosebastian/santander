@@ -13,6 +13,7 @@ import Footer from "./views/components/Footer";
 import Home from "./views/containers/Home";
 import Login from "./views/containers/Login";
 import Create from "./views/containers/Create";
+import View from "./views/containers/View";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -31,13 +32,14 @@ ReactDOM.render(
             key={"/login"}
             path={"/login"}
           />
-          <Route
+          <PrivateRoute
             exact
             onlyAdmin
             component={(props) => <Create {...props} />}
             key={"/create"}
             path={"/create"}
           />
+          <Route exact component={View} key={"/view"} path={"/view"} />
         </Switch>
       </ConnectedRouter>
       <Footer />
