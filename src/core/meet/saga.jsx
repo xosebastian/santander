@@ -73,7 +73,5 @@ export function* setGuestSaga({ payload }) {
 
   var meets = [...meet, find];
 
-  console.log(meets);
-
   yield put(updateMeetAction(meets));
 }

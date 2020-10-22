@@ -26,7 +26,7 @@ export const PrivateRoute = ({ auth, component: Component, ...rest }) => (
 );
 
 const mapStateToProps = (state) => (
-  console.log(state),
+
   {
     auth: state.reducer.auth,
   }
