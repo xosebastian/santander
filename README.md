@@ -29,6 +29,7 @@ Ejecutar pruebas
 - Api: https://www.weatherbit.io/api.
 - Axios: http. https://www.npmjs.com/package/react-axios.
 - Webpack: https://webpack.js.org/
+- eslint: https://eslint.org/
 
 ## Inicio Sesión
 
