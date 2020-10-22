@@ -125,7 +125,7 @@ const View = (props) => {
               )}
               <div className={classes.chips}>
                 {guestList.map((o) => (
-                  <Chip icon={<FaceIcon />} label={o.name} color="Secondary" />
+                  <Chip icon={<FaceIcon />} key={o.name} label={o.name} color="Secondary" />
                 ))}
               </div>
             </CardContent>

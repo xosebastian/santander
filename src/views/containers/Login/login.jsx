@@ -52,7 +52,6 @@ const Login = (props) => {
             label="Usuario"
             name="user"
             color="primary"
-            autoComplete="Usuario"
             onChange={(e) => setLogin({ ...login, username: e.target.value })}
             autoFocus
           />

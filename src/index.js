@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider, ReactReduxContext } from "react-redux";
+import { Provider } from "react-redux";
 import { store, history } from "./core/store.config";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
