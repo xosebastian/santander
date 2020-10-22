@@ -1,4 +1,4 @@
-## Correr el proyecto.
+## Challenge.
 
 Ejecutar el proyecto local 
 
