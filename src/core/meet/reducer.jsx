@@ -18,7 +18,7 @@ const defaultState = {
     {
       id: 0,
       place: "San Telmo",
-      date: "20/07/1993",
+      date: "20/11/2020",
       time: "9:00",
       guest: "150",
       guestList: [
@@ -31,7 +31,7 @@ const defaultState = {
     {
       id: 1,
       place: "San Telmo",
-      date: "20/07/1993",
+      date: "21/11/2020",
       time: "9:00",
       guest: "150",
       guestList: [
@@ -44,7 +44,7 @@ const defaultState = {
     {
       id: 2,
       place: "San Telmo",
-      date: "20/07/1993",
+      date: "22/12/2020",
       time: "9:00",
       guest: "150",
       guestList: [
